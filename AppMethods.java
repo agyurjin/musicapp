@@ -5,11 +5,17 @@ public interface AppMethods {
 
 	void addPlaylist(Playlist playlist);
 	void addAlbum(Album album);
-	void play(int index, boolean isPlaylist);
-
-	/*	void SearchSong(Song song);
-	Song currentSong(int songNumber);
+	int searchSong(Song song, Playlist playlist);
+	int searchSong(Song song, Album album);
 	int numberOfSongs();
-	void SongDetails(int songNumber);
+	int numberofPlaylist();
+	int numberofAlbum();
+
+	void play(int number);
+	void play(Album album);
+
+	/*
+	void currentSongDetails();
+	Song currentSong();
 */	
 }

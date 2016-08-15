@@ -5,18 +5,19 @@ import java.util.List;
 
 public class Album {
 
-	List<Song> album = new ArrayList<Song>();
-	private int numberofSongs = album.size();
-	
-	public int getNumberofSongs() {
-		return this.numberofSongs;
-	}
+	List<Song> albumSong = new ArrayList<Song>();
+	private int numberofSongs;
 	
 	public void addSong(Song newSong){
-		album.add(newSong);
+		this.albumSong.add(newSong);
+		this.numberofSongs = this.albumSong.size();
 	}
 	
 	public Song getSong(int number){
-		return album.get(number);
+		return this.albumSong.get(number);
+	}
+
+	public int getNumberofSongs() {
+		return this.numberofSongs;
 	}
 }
