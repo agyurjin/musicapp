@@ -10,12 +10,6 @@ public interface AppMethods {
 	int numberOfSongs();
 	int numberofPlaylist();
 	int numberofAlbum();
-
-	void play(int number);
-	void play(Album album);
-
-	/*
+	void play(String str, int number);
 	void currentSongDetails();
-	Song currentSong();
-*/	
 }

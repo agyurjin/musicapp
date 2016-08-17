@@ -9,12 +9,11 @@ public class Application implements AppMethods{
 	private List<Album> album = new ArrayList<Album>();
 
 	private int currentSong;
-	private int currentPlaylist;
-	private int currentAlbum;
+	private int currentPlaylist = -1;
+	private int currentAlbum = -1;
 	private int playlistNumber;
 	private int albumNumber;
 	private int numberofSongs;
-	private boolean isPlaylist;
 	
 /*
 	class PlayableItem {
@@ -77,50 +76,34 @@ public class Application implements AppMethods{
 		return this.albumNumber;
 	}
 	
-/*	@Override
-	public void play(Playlist playlist) {
-		for(int i = 0; i < playlist.getNumberofSongs();i++){
-				System.out.println((playlist.getSong(i)).toString());
-				this.currentSong = i;
-		}
-		this.numberofSongs = playlist.getNumberofSongs();
-		this.isPlaylist = true;
-	} 
-*/
-	public void play(int number) {
-		for(int i = 0; i < this.playlist.get(number).getNumberofSongs();i++){
+	public void play(String str, int number) {
+
+		if(str == "playlist"){
+			for(int i = 0; i < this.playlist.get(number).getNumberofSongs();i++){
 				System.out.println((this.playlist.get(number).getSong(i)).toString());
 				this.currentSong = i;
+			}
+			this.numberofSongs = playlist.get(number).getNumberofSongs();
+			this.currentPlaylist = number;
 		}
-		this.numberofSongs = playlist.get(number).getNumberofSongs();
-		this.isPlaylist = true;
-		this.currentPlaylist = number;
-	}
-
-	@Override
-	public void play(Album album) {
-		for(int i = 0; i < album.getNumberofSongs();i++){
-				System.out.println((album.getSong(i)).toString());
+		else {
+			for(int i = 0; i < this.album.get(number).getNumberofSongs();i++){
+				System.out.println((this.album.get(number).getSong(i)).toString());
 				this.currentSong = i;
+			}
+			this.numberofSongs = album.get(number).getNumberofSongs();
+			this.currentAlbum = number;
+			
 		}
-		this.numberofSongs = album.getNumberofSongs();
-		this.isPlaylist = false;
 	}
-}
 
-/*	
 	@Override
 	public void currentSongDetails() {
-		if(isPlaylist)
-			System.out.println((playlist.getSong(currentSong)).toString());
-		else
-			System.out.println((album.getSong(currentSong)).toString());
-			
-	}
-	@Override
-	public Song currentSong() {
-		return playlist.getSong(this.currentSong);
+			if(currentAlbum == -1)
+				System.out.println((playlist.get(currentPlaylist).getSong(currentSong)).toString());
+			else
+				System.out.println((playlist.get(currentAlbum).getSong(currentSong)).toString());
+				
 	}
 
-
-*/
+}
